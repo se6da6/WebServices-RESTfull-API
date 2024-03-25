@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Demo</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div id="app" v-cloak>
+        <!-- Start Vue -->
+        <h1>{{ title }}</h1>
+        <button @click="fetchResource('actors')">Actors</button>
+        <button @click="fetchResource('films')">Films</button>
+        <!--DONE add meta data here-->
+        <h3>{{ resourceType}}</h3>
+        <h3>Total pages: {{totalPages}}</h3>
+        <h3>Total Elements: {{totalElements}}</h3>
+        <h3>Page Size: {{size}}</h3>
+        <h3>Page number: {{number}}</h3>
+
+        <button @click="first">First</button>
+        <button @click="previous">Previous</button>
+        <button @click="next">Next</button>
+        <button @click="last">Last</button>
+
+        <table>
+            <thead>
+                <tr>
+                    <th v-for="key in headings">
+                        {{key}}
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="resource in content">                    
+                    <td v-for="key in resource">{{key}}</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <!-- End Vue -->
+    </div>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="js/app.js">
+    </script>
+</body>
+
+</html>
